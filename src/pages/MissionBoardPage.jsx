@@ -101,6 +101,11 @@ export default function MissionBoardPage() {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
+          height: "55em",
+          overflow: "scroll",
+          overflowX: "hidden",
+          //overflowY: "hidden",
+
           //to the next line
           flexWrap: "wrap",
           gap: "2em",
