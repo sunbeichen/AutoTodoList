@@ -4,6 +4,7 @@ import MissionBoardPage from "./pages/MissionBoardPage";
 import { v4 } from "uuid";
 
 export const LogList = createContext(null);
+export const Socket = createContext(null);
 
 function App() {
   const [logList, setLogList] = useState([
@@ -70,20 +71,24 @@ function App() {
     },
   ]);
 
+  const [socket, setSocket] = useState(null);
+
   return (
     <LogList.Provider value={[logList, setLogList]}>
-      <div
-        style={{
-          position: "relative",
-          background:
-            "linear-gradient(30deg, #656e8b 15%, #0c5e74 50%,  #17304e 100%)",
-          height: "100%",
-          width: "100%",
-        }}
-      >
-        {/* <MainPage /> */}
-        <MissionBoardPage />
-      </div>
+      <Socket.Provider value={[socket, setSocket]}>
+        <div
+          style={{
+            position: "relative",
+            background:
+              "linear-gradient(30deg, #656e8b 15%, #0c5e74 50%,  #17304e 100%)",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          {/* <MainPage /> */}
+          <MissionBoardPage />
+        </div>
+      </Socket.Provider>
     </LogList.Provider>
   );
 }
